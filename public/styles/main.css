@@ -1,0 +1,138 @@
+@layer reset, base, components;
+
+@import './normalize.css' layer(reset);
+@import './typography.css' layer(reset);
+@import './base16.css' layer(base);
+@import './components.css' layer(components);
+
+@layer reset {
+  *, *::after, *::before {
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-alt) var(--border);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: all 0.15s ease;
+    }
+  }
+}
+
+/* || BASE */
+@layer base {
+  /* || LAYOUT */
+  html, body {
+    background: var(--bg);
+    color: var(--fg);
+    block-size: 100vh;
+    block-size: 100dvh;
+    @media (width > 900px) {
+      overflow: auto;
+    }
+  }
+
+  /* || LAYOUT */
+  body {
+    display: grid;
+
+    /* || STACK ON MOBILE */
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-areas:
+      'header'
+      'left'
+      'main'
+      'right'
+      'footer';
+
+    /* || "HOLY GRAIL" LAYOUT - https://www.youtube.com/watch?v=DrtuwXh71hY */
+    @media (width > 900px) {
+      grid-template-rows: auto 1fr auto;
+      grid-template-columns: 20vw 1fr 20vw;
+      grid-template-areas:
+        'header header header'
+        'left main right'
+        'footer footer footer';
+    }
+
+    /* || GRID AREAS */
+    header {
+      grid-area: header;
+    }
+    aside.left {
+      grid-area: left;
+    }
+    main {
+      grid-area: main;
+    }
+    aside.right {
+      grid-area: right;
+    }
+    footer {
+      grid-area: footer;
+    }
+
+    /** || AREAS */
+    header,
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      background: var(--bg);
+      padding: 0.5rem;
+    }
+
+    header {
+      justify-content: space-between;
+    }
+
+    footer {
+      justify-content: center;
+    }
+
+    aside {
+      background: var(--bg);
+    }
+
+    main {
+      position: relative;
+      background: var(--bg-bright);
+      color: var(--fg-bright);
+      display: flex;
+      flex-direction: column;
+      justify-content: safe center;
+      padding: 2rem;
+      @media (width > 900px) {
+        overflow-y: auto;
+      }
+    }
+
+    #content {
+      margin-inline: auto;
+      width: 100%;
+      max-width: 120ch;
+    }
+
+    aside,
+    main {
+      text-wrap: wrap;
+      min-height: 0;
+    }
+
+    aside {
+      padding: 1rem;
+      @media (width > 900px) {
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: safe center;
+      }
+    }
+
+    header,
+    footer,
+    main,
+    aside {
+      width: 100%;
+      outline: 1px solid var(--border);
+    }
+  }
+}

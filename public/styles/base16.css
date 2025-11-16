@@ -1,0 +1,80 @@
+/* || BASE 16 THEME DEFAULTS - overridden by theme selector */
+:root {
+  /* dark: kanagawa dragon */
+  --base00: #0d0c0c;
+  --base01: #1d1c19;
+  --base02: #282727;
+  --base03: #737c73;
+  --base04: #a6a69c;
+  --base05: #c5c9c5;
+  --base06: #7a8382;
+  --base07: #c5c9c5;
+  --base08: #c4746e;
+  --base09: #b98d7b;
+  --base0A: #c4b28a;
+  --base0B: #87a987;
+  --base0C: #8ea4a2;
+  --base0D: #8ba4b0;
+  --base0E: #8992a7;
+  --base0F: #a292a3;
+}
+
+/* light: rose-pine dawn */
+@media (prefers-color-scheme: light) {
+  :root {
+    --base00: #faf4ed;
+    --base01: #fffaf3;
+    --base02: #f2e9de;
+    --base03: #9893a5;
+    --base04: #797593;
+    --base05: #575279;
+    --base06: #575279;
+    --base07: #cecacd;
+    --base08: #b4637a;
+    --base09: #ea9d34;
+    --base0A: #d7827e;
+    --base0B: #286983;
+    --base0C: #56949f;
+    --base0D: #907aa9;
+    --base0E: #ea9d34;
+    --base0F: #cecacd;
+  }
+}
+
+/* || MAP TO SEMANTIC NAMES */
+:root {
+  --bg-dark: var(--base00);
+  --bg: var(--base01);
+  --bg-bright: var(--base02);
+
+  --border: var(--base03);
+  --border-alt: var(--base04);
+
+  --fg-dark: var(--base05);
+  --fg: var(--base06);
+  --fg-bright: var(--base07);
+
+  --error: var(--base08);
+  --warning: var(--base09);
+  --info: var(--base0A);
+  --success: var(--base0B);
+
+  --primary: var(--base0C);
+  --secondary: var(--base0D);
+  --tertiary: var(--base0E);
+
+  --brown: var(--base0F);
+
+  /* https://github.com/tinted-theming/home/blob/main/styling.md */
+  --shiki-foreground: var(--base05);
+  --shiki-background: var(--base00);
+  --shiki-token-constant: var(--base09);
+  --shiki-token-string: var(--base0B);
+  --shiki-token-comment: var(--base03);
+  --shiki-token-keyword: var(--base0E);
+  --shiki-token-parameter: var(--base08);
+  --shiki-token-function: var(--base0D);
+  --shiki-token-string-expression: var(--base0C);
+  --shiki-token-punctuation: var(--base0C);
+  --shiki-token-link: var(--base09);
+}

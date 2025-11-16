@@ -1,0 +1,42 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  version="1.1"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:svgjs="http://svgjs.com/svgjs"
+  width="128"
+  height="128"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xml:space="preserve"
+    width="128"
+    height="128"
+  >
+    <defs>
+      <clipPath id="SvgjsClipPath1000" clipPathUnits="userSpaceOnUse">
+        <path d="M0 1080h1920V0H0Z"></path>
+      </clipPath>
+    </defs>
+    <g
+      clip-path="url(#a)"
+      transform="matrix(1.087 0 0 -1.087 -1121.232 769.318)"
+    >
+      <path
+        fill="currentColor"
+        d="M1107.069 604.296c-12.911-12.91-31.24-17.07-47.641-12.505 7.827 2.18 15.217 6.348 21.374 12.505 19.044 19.044 19.044 49.925 0 68.976l-21.351 21.351 13.134 13.134 34.484-34.485c19.044-19.05 19.044-49.932 0-68.976"
+      >
+      </path>
+    </g>
+  </svg>
+  <style>
+    path {
+      fill: #000;
+    }
+    @media (prefers-color-scheme: dark) {
+      path {
+        fill: #fff;
+      }
+    }
+  </style>
+</svg>
+<!-- vim: set ft=html: -->

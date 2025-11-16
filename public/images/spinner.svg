@@ -1,0 +1,27 @@
+<svg viewbox="0 0 20 20" id="spinner">
+  <style>
+    #rect {
+      animation: smoosh 3s 0s cubic-bezier(0.09, 0.57, 0.49, 0.9) infinite;
+      transform-origin: 50% 50%;
+    }
+
+    @keyframes smoosh {
+      25% {
+        transform: rotateX(180deg) rotateY(0);
+      }
+
+      50% {
+        transform: rotateX(180deg) rotateY(180deg);
+      }
+
+      75% {
+        transform: rotateX(0) rotateY(180deg);
+      }
+
+      100% {
+        transform: rotateX(0) rotateY(0);
+      }
+    }
+  </style>
+  <rect width="20" height="20" fill="currentColor" id="rect" />
+</svg>

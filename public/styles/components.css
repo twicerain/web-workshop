@@ -1,0 +1,408 @@
+/* || HEADER TOGGLES */
+#mode-toggle,
+#laser-toggle {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  min-width: 3rem;
+}
+
+#laser-toggle[data-laser='true'] {
+  background: var(--base08);
+  color: var(--bg-bright);
+}
+
+#mode-toggle[data-mode='csr'] {
+  background: var(--base0D);
+  color: var(--bg-bright);
+}
+
+/* Laser pointer cursor */
+:root[data-laser='true'] {
+  cursor: url('/images/laser.svg') 16 16, auto;
+  * {
+    cursor: inherit !important;
+  }
+}
+
+/* || BREADCRUMBS */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+  font-style: italic;
+
+  a {
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: var(--fg-bright);
+      text-decoration: none;
+    }
+
+    &:not(:first-child)::before {
+      content: '→';
+      margin-right: 1.5rem;
+      color: var(--border-alt);
+    }
+  }
+}
+
+/* || NAVIGATION */
+nav {
+  width: 100%;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  li {
+    width: 100%;
+    display: block;
+  }
+
+  a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-inline: 2px solid transparent;
+    width: 100%;
+  }
+
+  a:hover {
+    background: var(--bg-bright);
+    text-decoration: none;
+  }
+
+  a[aria-current='page'] {
+    color: var(--tertiary);
+  }
+
+  &.page-nav {
+    a:hover {
+      border-left: 2px solid var(--primary);
+    }
+
+    a[aria-current='page']:hover {
+      border-left: 2px solid var(--tertiary);
+    }
+  }
+  &.slide-nav {
+    a:hover {
+      border-right: 2px solid var(--primary);
+    }
+
+    a[aria-current='page']:hover {
+      border-right: 2px solid var(--tertiary);
+    }
+  }
+}
+
+/* || CODE BLOCKS */
+.code-block-wrapper {
+  position: relative;
+  margin: 1rem 0;
+  width: 100%;
+
+  pre {
+    margin: 0;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+}
+
+.copy-code {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-bright);
+  color: var(--fg);
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+    background: var(--secondary);
+    color: var(--bg-bright);
+    outline: 1px solid var(--border-alt);
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .check-icon {
+    display: none;
+  }
+
+  &.copied {
+    .copy-icon {
+      display: none;
+    }
+
+    .check-icon {
+      display: block;
+      color: var(--success);
+    }
+  }
+}
+
+/* || MERMAID */
+.language-mermaid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  margin: 2rem 0;
+}
+
+pre:has(code.language-mermaid:not([data-processed='true'])) code {
+  color: transparent !important;
+}
+
+pre:has(code.language-mermaid:not([data-processed='true'])) code * {
+  color: transparent !important;
+}
+
+/* || SPINNER */
+#spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  width: 1rem;
+  height: 1rem;
+  z-index: 1000;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+#spinner svg {
+  width: 100%;
+  height: 100%;
+  color: var(--primary);
+}
+
+main#content::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+  opacity: 0;
+  pointer-events: none;
+}
+
+html[data-loading='true'] {
+  #spinner {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  main#content::after {
+    opacity: 0.8;
+  }
+}
+
+/* || COUNTER DEMO */
+.counter {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  margin: 1rem;
+
+  .count {
+    font-size: 2rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--fg-bright);
+    min-width: 3ch;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+  }
+
+  button.fib {
+    background: var(--info);
+  }
+
+  button.prime {
+    background: var(--warning);
+  }
+
+  button.fibprime {
+    background: var(--success);
+  }
+}
+
+/* || THEME SWITCHER */
+theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+
+  label {
+    color: var(--fg);
+  }
+
+  .autocomplete {
+    position: relative;
+  }
+
+  input {
+    appearance: none;
+    background: var(--bg-bright);
+    color: var(--fg);
+    outline: 1px solid var(--border);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-family: inherit;
+    min-width: 200px;
+    transition: all 0.15s ease;
+
+    &:hover {
+      outline-color: var(--primary);
+    }
+
+    &:focus {
+      outline: none;
+      outline-color: var(--primary);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0.25rem;
+    background: var(--bg-bright);
+    outline: 1px solid var(--border);
+    max-height: 300px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+
+    li {
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-size: 0.875rem;
+
+      &:hover {
+        background: var(--bg);
+        color: var(--primary);
+      }
+    }
+  }
+
+  .loading {
+    font-size: 0.75rem;
+    color: var(--fg-dark);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  .error {
+    font-size: 0.75rem;
+    color: var(--base08);
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+}
+
+/* || DEFINITION LIST */
+dl {
+  dt {
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.125rem;
+    color: var(--fg-bright);
+    margin-top: 1rem;
+  }
+
+  dd {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* || BUTTONS */
+button, .btn {
+  padding: 0 1rem;
+  outline: 1px solid var(--border);
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  appearance: none;
+  background: var(--bg-bright);
+  color: var(--fg);
+  font-size: 0.825rem;
+  line-height: 1;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button svg, .btn svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+button:hover, .btn:hover {
+  background: var(--secondary);
+  color: var(--bg-bright);
+  outline: 1px solid var(--border-alt);
+}
+
+button:disabled, .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* || LINKS */
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--secondary);
+  text-decoration: underline;
+}

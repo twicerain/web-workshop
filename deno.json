@@ -1,0 +1,53 @@
+{
+  "tasks": {
+    "dev": "deno run --watch --allow-all --env-file server/main.ts",
+    "serve": "ENV=production deno run --watch --allow-all --env-file server/main.ts",
+    "test": "deno test --allow-all"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@^1.0.15",
+    "@std/cli": "jsr:@std/cli@^1.0.23",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.5",
+    "@std/front-matter": "jsr:@std/front-matter@^1.0.9",
+    "@std/http": "jsr:@std/http@^1.0.21",
+    "@std/fs": "jsr:@std/fs@^1.0.0",
+    "unified": "https://esm.sh/unified@latest",
+    "remark-parse": "https://esm.sh/remark-parse@latest",
+    "remark-definition-list": "https://esm.sh/remark-definition-list@latest",
+    "remark-gfm": "https://esm.sh/remark-gfm@latest",
+    "remark-rehype": "https://esm.sh/remark-rehype@latest",
+    "rehype-stringify": "https://esm.sh/rehype-stringify@latest",
+    "unist-util-visit": "https://esm.sh/unist-util-visit@latest",
+    "mermaid": "https://esm.sh/mermaid@latest",
+    "hast": "https://esm.sh/@types/hast@latest",
+    "shiki": "https://esm.sh/shiki@latest",
+    "shiki/rehype": "https://esm.sh/@shikijs/rehype@latest",
+
+    "md": "./shared/md.js",
+    "html": "./shared/html.js",
+    "icons": "./shared/icons.js",
+    "types": "./shared/types.js",
+
+    "signal": "./public/scripts/signal.js",
+    "lib": "./public/scripts/lib/index.js"
+  },
+  "compilerOptions": {
+    "checkJs": true,
+    "strict": true,
+    "lib": [
+      "deno.window",
+      "dom",
+      "dom.iterable"
+    ]
+  },
+  "fmt": {
+    "semiColons": false,
+    "singleQuote": true,
+    "trailingCommas": "onlyMultiLine",
+    "spaceSurroundingProperties": true,
+    "proseWrap": "preserve"
+  },
+  "test": {
+    "include": ["server", "public/scripts"]
+  }
+}
