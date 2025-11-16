@@ -7,7 +7,7 @@ export function parsePort(args: string[]) {
 
   const parsedPort: undefined | string | number = parsed[0]
   if (parsedPort === undefined) return 1111
-  const port = parsedPort!
+  const port = Number(parsedPort!)
 
   assert(
     typeof port === 'number' && port >= 1024 && port < 10_000,
