@@ -1,5 +1,7 @@
 # Web Workshop
 
+[![Deno](https://github.com/twicerain/web-workshop/actions/workflows/deno.yml/badge.svg)](https://github.com/twicerain/web-workshop/actions/workflows/deno.yml)
+
 A vanilla site built to host slides for a "web frameworks" workshop I prepared and presented at work.
 
 Demonstrates web fundamentals without abstraction by implementing both client-side and server-side rendering modes, vanilla reactive signals, and web components without dependencies.
